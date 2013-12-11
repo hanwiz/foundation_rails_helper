@@ -87,7 +87,7 @@ module FoundationRailsHelper
       if text == false
         text = ""
       elsif text.nil?
-        text = if object.class.respond_to?(:human_attribute_name)
+        text = if object && object.class.respond_to?(:human_attribute_name)
           object.class.human_attribute_name(attribute)
         else
           attribute.to_s.humanize
